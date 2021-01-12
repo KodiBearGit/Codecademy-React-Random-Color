@@ -8,6 +8,7 @@ class Random extends React.Component {
     this.state = {
       color: [255, 150, 200]
     }
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -40,13 +41,17 @@ class Random extends React.Component {
     return random;
   }
 
+  handleClick() {
+    this.setState(color: this.chooseColor());
+  }
+
   render() {
     return (
       <div>
         <h1 className={this.isLight() ? 'white' : 'black'}>
           `Your color is {this.formatColor(this.state.color)}`
         </h1>
-        <Button light={this.isLight()}>
+        <Button onClick={this.handleClick()} light={this.isLight()}>
 
         </Button>
       </div>
